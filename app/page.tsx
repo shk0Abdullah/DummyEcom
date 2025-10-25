@@ -3,6 +3,7 @@ import Cover from "@/components/ui/cover";
 import Products from "@/components/ui/products";
 import TopCategories from "@/components/ui/categories";
 import TopSellingIndoorPlants from "@/components/ui/selling";
+import GardeningAccessories from "@/components/ui/accessories";
 export default function Home() {
   return (
     <>
@@ -18,6 +19,7 @@ export default function Home() {
 "
       />
       <TopSellingIndoorPlants heading="New Arrivals" />
+      <GardeningAccessories />
     </>
   );
 }
