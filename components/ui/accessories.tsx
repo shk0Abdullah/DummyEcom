@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef, useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-
+import CustomBtn from "./button";
 export type Product = {
   id: number;
   title: string;
@@ -15,64 +15,70 @@ export const products: Product[] = [
     id: id++,
     title: "Watering Can 5liters and 12 liters",
     price: "Dhs. 25.00 - Dhs. 45.00",
-    img: "//greensouq.ae/cdn/shop/files/watering-can-5liters-and-12-liters-6615957_512x470.jpg?v=1756305201",
+    img: "/Accessories/1.avif",
   },
   {
     id: id++,
     title: "3 Piece Set Gardening Hand Tools",
     price: "Dhs. 45.00",
-    img: "//greensouq.ae/cdn/shop/files/3-piece-set-gardening-hand-tools-9975950_512x470.jpg?v=1756305201",
+    img: "/Accessories/2.avif",
   },
   {
     id: id++,
     title: "Garden Bamboo Reed Privacy Fence",
     price: "Dhs. 145.00 - Dhs. 320.00",
-    img: "//greensouq.ae/cdn/shop/files/garden-bamboo-reed-privacy-fence-durable-outdoor-privacy-balcony-privacy-fence-boundry-privacy-fence-5809996_512x512.jpg?v=1756305134",
+    img: "/Accessories/4.avif",
   },
   {
     id: id++,
     title: "Garden Shade Net 73% with 6 Years Warranty",
     price: "Dhs. 16.00 - Dhs. 1,160.00",
-    img: "//greensouq.ae/cdn/shop/files/garden-shade-net-73-with-6-years-warranty-made-in-korea-4918022_512x470.jpg?v=1756308669",
+    img: "/Accessories/3.avif",
   },
   {
     id: id++,
     title: "Garden Gloves with Claws",
     price: "Dhs. 12.50",
-    img: "//greensouq.ae/cdn/shop/files/garden-gloves-with-claws-hands-protection-garden-safety-gloves-easy-seeding-and-garden-works-4371406_440x403.jpg?v=1756305133",
+    img: "/Accessories/6.avif",
   },
   {
     id: id++,
     title: "Pruning Shear",
     price: "Dhs. 65.00",
-    img: "//greensouq.ae/cdn/shop/files/pruning-shear-6719812_512x470.jpg?v=1756308811",
+    img: "/Accessories/5.avif",
   },
   {
     id: id++,
     title: "Non Woven Geotextile 3m Width",
     price: "Dhs. 18.00 - Dhs. 999.00",
-    img: "//greensouq.ae/cdn/shop/files/non-woven-geotextile-3m-width-8417789_320x320.jpg?v=1756308395",
+    img: "/Accessories/10.avif",
   },
   {
     id: id++,
     title: "Hoe & Cultivator",
     price: "Dhs. 26.25",
-    img: "//greensouq.ae/cdn/shop/files/hoe-cultivator-1205561_512x470.jpg?v=1756306992",
+    img: "/Accessories/9.avif",
   },
   {
     id: id++,
     title: "akaddy Handheld Portable Plant Spray Bottle 1Ltr",
     price: "Dhs. 36.75",
-    img: "//greensouq.ae/cdn/shop/files/akaddy-handheld-portable-plant-spray-bottle-1ltr-6469886_512x470.jpg?v=1756306575",
+    img: "/Accessories/8.avif",
   },
   {
     id: id++,
     title: "Leaf Rake with Aluminium Handle",
     price: "Dhs. 95.00",
-    img: "//greensouq.ae/cdn/shop/files/leaf-rake-with-aluminium-handle-1285698_512x941.jpg?v=1756308810",
+    img: "/Accessories/7.avif",
   },
 ];
-const GardeningAccessories: React.FC = () => {
+interface GardeningAccessoriesProps {
+  heading: string;
+}
+
+const GardeningAccessories: React.FC<GardeningAccessoriesProps> = ({
+  heading,
+}) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -135,9 +141,7 @@ const GardeningAccessories: React.FC = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
-      <h1 className="text-3xl md:text-4xl font-bold text-center mb-8">
-        Gardening Accessories
-      </h1>
+      <h1 className="text-2xl md:text-2xl text-center mb-8">{heading}</h1>
 
       <div className="relative">
         {/* Left Arrow */}
@@ -168,7 +172,7 @@ const GardeningAccessories: React.FC = () => {
           {products.map((product) => (
             <div
               key={product.id}
-              className="flex-shrink-0 w-[calc(50%-8px)] md:w-[calc(33.333%-11px)] lg:w-[calc(20%-13px)] bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
+              className="group flex-shrink-0 w-[calc(50%-8px)] md:w-[calc(33.333%-11px)] lg:w-[calc(20%-13px)] bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
             >
               <div className="relative aspect-square overflow-hidden bg-gray-50">
                 <img
@@ -184,10 +188,19 @@ const GardeningAccessories: React.FC = () => {
                   {product.title}
                 </h3>
 
-                <div className="flex flex-col gap-1">
+                <div className="flex flex-col gap-1 mb-3">
                   <span className="text-sm font-semibold text-gray-900">
                     {product.price}
                   </span>
+                </div>
+
+                <div className="space-y-2 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+                  <button className="w-full py-2.5 bg-white border border-gray-900 text-gray-900 text-sm font-medium rounded hover:bg-gray-50 transition-colors">
+                    Quick shop
+                  </button>
+                  <button className="w-full py-2.5 bg-black text-white text-sm font-medium rounded hover:bg-gray-800 transition-colors">
+                    Choose options
+                  </button>
                 </div>
               </div>
             </div>
@@ -205,7 +218,7 @@ const GardeningAccessories: React.FC = () => {
           </button>
         )}
       </div>
-
+      <CustomBtn text="Shop Collection" />
       <style jsx>{`
         .scrollbar-hide::-webkit-scrollbar {
           display: none;

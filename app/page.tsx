@@ -19,7 +19,9 @@ export default function Home() {
 "
       />
       <TopSellingIndoorPlants heading="New Arrivals" />
-      <GardeningAccessories />
+      <GardeningAccessories heading="Gardening Accessories" />
+      <GardeningAccessories heading="Top Selling Pots & Planters" />
+      <GardeningAccessories heading="Best Selling Soil & Fertilisers" />
     </>
   );
 }
