@@ -4,6 +4,7 @@ import TopCategories from "@/components/ui/categories";
 import TopSellingIndoorPlants from "@/components/ui/selling";
 import GardeningAccessories from "@/components/ui/accessories";
 import Newsletter from "@/components/Newsletter";
+import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <>
@@ -23,6 +24,7 @@ export default function Home() {
       <GardeningAccessories heading="Top Selling Pots & Planters" />
       <GardeningAccessories heading="Best Selling Soil & Fertilisers" />
       <Newsletter />
+      <Footer />
     </>
   );
 }
