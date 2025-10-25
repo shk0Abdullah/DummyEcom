@@ -143,7 +143,7 @@ const GardeningAccessories: React.FC<GardeningAccessoriesProps> = ({
     <div className="max-w-7xl mx-auto px-4 py-8">
       <h1 className="text-2xl md:text-2xl text-center mb-8">{heading}</h1>
 
-      <div className="relative">
+      <div className="relative mb-10">
         {/* Left Arrow */}
         {canScrollLeft && (
           <button

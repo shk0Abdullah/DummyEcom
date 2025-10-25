@@ -1,9 +1,9 @@
-import Image from "next/image";
 import Cover from "@/components/ui/cover";
 import Products from "@/components/ui/products";
 import TopCategories from "@/components/ui/categories";
 import TopSellingIndoorPlants from "@/components/ui/selling";
 import GardeningAccessories from "@/components/ui/accessories";
+import Newsletter from "@/components/Newsletter";
 export default function Home() {
   return (
     <>
@@ -22,6 +22,7 @@ export default function Home() {
       <GardeningAccessories heading="Gardening Accessories" />
       <GardeningAccessories heading="Top Selling Pots & Planters" />
       <GardeningAccessories heading="Best Selling Soil & Fertilisers" />
+      <Newsletter />
     </>
   );
 }
